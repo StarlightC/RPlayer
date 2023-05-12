@@ -86,3 +86,10 @@ ABI=x86_64
 build_android
 
 cp -r $ROOT_DIR/third_party/soundtouch/resource/include/* $ROOT_DIR/third_party/soundtouch/output/include
+
+if [ -f "$ROOT_DIR/android/rust/soundtouch-sys/soundtouch" ]; then
+    cp -r $ROOT_DIR/third_party/soundtouch/output/* $ROOT_DIR/android/rust/soundtouch-sys/soundtouch
+else
+    mkdir -p $ROOT_DIR/android/rust/soundtouch-sys/soundtouch
+    cp -r $ROOT_DIR/third_party/soundtouch/output/* $ROOT_DIR/android/rust/soundtouch-sys/soundtouch
+fi

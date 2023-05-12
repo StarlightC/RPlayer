@@ -162,3 +162,11 @@ PLATFORMLIB=$SYSROOT/usr/lib/x86/$API
 OPTIMIZE_CFLAGS="-march=$CPU"
 
 build_android
+
+
+if [ -f "$ROOT_DIR/android/rust/ffmpeg-sys/cpp" ]; then
+    cp -r $ROOT_DIR/third_party/ffmpeg/output/* $ROOT_DIR/android/rust/ffmpeg-sys/cpp
+else
+    mkdir -p $ROOT_DIR/android/rust/ffmpeg-sys/cpp
+    cp -r $ROOT_DIR/third_party/ffmpeg/output/* $ROOT_DIR/android/rust/ffmpeg-sys/cpp
+fi

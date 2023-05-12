@@ -16,21 +16,11 @@
 # License along with RPlayer; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
 
-ROOT_DIR=`git rev-parse --show-toplevel`
+[workspace]
 
-sh $ROOT_DIR/script/build_android_openssl.sh &&
-sh $ROOT_DIR/script/build_android_libyuv.sh &&
-sh $ROOT_DIR/script/build_android_soundtouch.sh &&
-sh $ROOT_DIR/script/build_android_ffmpeg.sh
-
-export TARGET_ARC_PATH=./cpp/lib/arm64-v8a
-
-cd $ROOT_DIR/android/rust/libyuv-sys
-cargo build &&
-cargo test &&
-cd $ROOT_DIR/android/rust/soundtouch-sys
-cargo build &&
-cargo test
-cd $ROOT_DIR/android/rust/ffmpeg-sys
-cargo build &&
-cargo test 
+members = [
+    "rplayer",
+    "ffmpeg-sys",
+    "libyuv-sys",
+    "soundtouch-sys",
+]

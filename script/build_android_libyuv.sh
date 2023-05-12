@@ -83,3 +83,10 @@ buildAndroid
 ARCH=x86-64
 ANDROID_ARCH_ABI=x86_64
 buildAndroid
+
+if [ -f "$ROOT_DIR/android/rust/libyuv-sys/cpp" ]; then
+    cp -r $ROOT_DIR/third_party/libyuv/output/* $ROOT_DIR/android/rust/libyuv-sys/cpp
+else
+    mkdir -p $ROOT_DIR/android/rust/libyuv-sys/cpp
+    cp -r $ROOT_DIR/third_party/libyuv/output/* $ROOT_DIR/android/rust/libyuv-sys/cpp
+fi

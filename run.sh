@@ -49,6 +49,8 @@ function clear() {
     find $ROOT_DIR/third_party -type d -name "temp" -exec rm -rf {} + &&
     find $ROOT_DIR/third_party -type d -name "build" -exec rm -rf {} + &&
     find $ROOT_DIR/third_party -type d -name "output" -exec rm -rf {} + &&
+
+    find $ROOT_DIR/android/rust/ -type d -name "cpp" -exec rm -rf {} + &&
     rm -rf $ROOT_DIR/android/lib/
 }
 
